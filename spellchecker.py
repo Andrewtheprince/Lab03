@@ -45,7 +45,6 @@ class SpellChecker:
               "4. Exit\n" +
               "______________________________\n")
 
-
 def replaceChars(text):
     chars = "\\@#?=)(/&%$£!|,.-_:;+*^[]{}<>"
     for c in chars:
