@@ -1,5 +1,6 @@
-import time
-import multiDictionary as md
+import time as t
+import multiDictionary
+md = multiDictionary.MultiDictionary()
 
 class SpellChecker:
 
@@ -7,7 +8,15 @@ class SpellChecker:
         pass
 
     def handleSentence(self, txtIn, language):
-        pass
+        txtIn = replaceChars(txtIn)
+        tempo0 = t.time()
+        paroleSbagliate = md.searchWord(txtIn, language)
+        tempo1 = t.time()
+        print("______________________________")
+        for parola in paroleSbagliate:
+            print(parola)
+        print(f"Time elapsed {tempo1-tempo0}")
+
 
     def printMenu(self):
         print("______________________________\n" +
@@ -22,4 +31,7 @@ class SpellChecker:
 
 
 def replaceChars(text):
-    pass
+    chars = "\\@#?=)(/&%$£!|,.-_:;+*^[]{}<>"
+    for c in chars:
+        text = text.replace(c, "")
+    return text.lower()
