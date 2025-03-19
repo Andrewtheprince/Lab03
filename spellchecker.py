@@ -9,14 +9,30 @@ class SpellChecker:
 
     def handleSentence(self, txtIn, language):
         txtIn = replaceChars(txtIn)
+        print("______________________________")
+        print("Using contains")
         tempo0 = t.time()
         paroleSbagliate = md.searchWord(txtIn, language)
         tempo1 = t.time()
-        print("______________________________")
         for parola in paroleSbagliate:
             print(parola)
         print(f"Time elapsed {tempo1-tempo0}")
-
+        print("______________________________")
+        print("Using Linear search")
+        tempo2 = t.time()
+        paroleSbagliate2 = md.searchWordLinear(txtIn, language)
+        tempo3 = t.time()
+        for parola in paroleSbagliate2:
+            print(parola)
+        print(f"Time elapsed {tempo3 - tempo2}")
+        print("______________________________")
+        print("Using Dichotomic search")
+        tempo4 = t.time()
+        paroleSbagliate3 = md.searchWordDichotomic(txtIn, language)
+        tempo5 = t.time()
+        for parola in paroleSbagliate3:
+            print(parola)
+        print(f"Time elapsed {tempo5 - tempo4}")
 
     def printMenu(self):
         print("______________________________\n" +

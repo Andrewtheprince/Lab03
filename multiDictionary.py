@@ -39,3 +39,44 @@ class MultiDictionary:
                     paroleSbagliate.append(word)
         return paroleSbagliate
 
+    def searchWordLinear(self, words, language):
+        parole = words.split(" ")
+        paroleSbagliate = []
+        if language == "italian":
+            for parola in parole:
+                trovato = False
+                for elemVoc in self.dicItaliano.dizionario:
+                    if elemVoc == parola:
+                        trovato = True
+                        break
+                if not trovato:
+                    word = rw.RichWord(parola)
+                    paroleSbagliate.append(word)
+        elif language == "english":
+            for parola in parole:
+                trovato = False
+                for elemVoc in self.dicInglese.dizionario:
+                    if elemVoc == parola:
+                        trovato = True
+                        break
+                if not trovato:
+                    word = rw.RichWord(parola)
+                    paroleSbagliate.append(word)
+        else:
+            for parola in parole:
+                trovato = False
+                for elemVoc in self.dicSpagnolo.dizionario:
+                    if elemVoc == parola:
+                        trovato = True
+                        break
+                if not trovato:
+                    word = rw.RichWord(parola)
+                    paroleSbagliate.append(word)
+        return paroleSbagliate
+
+    def searchWordDichotomic(self, words, language):
+        parole = words.split(" ")
+        paroleSbagliate = []
+
+        return paroleSbagliate
+
