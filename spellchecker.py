@@ -1,5 +1,4 @@
 import time
-
 import multiDictionary as md
 
 class SpellChecker:

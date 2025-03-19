@@ -1,4 +1,5 @@
 class RichWord:
+
     def __init__(self, parola):
         self._parola = parola # this is a string
         self._corretta = None #this is a bool
