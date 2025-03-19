@@ -77,6 +77,79 @@ class MultiDictionary:
     def searchWordDichotomic(self, words, language):
         parole = words.split(" ")
         paroleSbagliate = []
-
+        if language == "italian":
+            numParoleVocabolario = len(self.dicItaliano.dizionario)
+            if numParoleVocabolario % 2 == 0:
+                elementoCentrale = numParoleVocabolario / 2
+            else:
+                elementoCentrale = (numParoleVocabolario + 1) / 2
+            parolaCentrale = self.dicItaliano.dizionario[int(elementoCentrale)]
+            for parola in parole:
+                verifica = False
+                if parola == parolaCentrale:
+                    verifica = True
+                else:
+                    if parola[0] < parolaCentrale[0]:
+                        for i in range(0, int(elementoCentrale), -1):
+                            if self.dicItaliano.dizionario[i] == parola:
+                                verifica = True
+                                break
+                    else:
+                        for i in range(int(elementoCentrale), numParoleVocabolario):
+                            if self.dicItaliano.dizionario[i] == parola:
+                                verifica = True
+                                break
+                if not verifica:
+                    word = rw.RichWord(parola)
+                    paroleSbagliate.append(word)
+        elif language == "english":
+            numParoleVocabolario = len(self.dicInglese.dizionario)
+            if numParoleVocabolario % 2 == 0:
+                elementoCentrale = numParoleVocabolario / 2
+            else:
+                elementoCentrale = (numParoleVocabolario + 1) / 2
+            parolaCentrale = self.dicInglese.dizionario[int(elementoCentrale)]
+            for parola in parole:
+                verifica = False
+                if parola == parolaCentrale:
+                    verifica = True
+                else:
+                    if parola[0] < parolaCentrale[0]:
+                        for i in range(0, int(elementoCentrale), -1):
+                            if self.dicInglese.dizionario[i] == parola:
+                                verifica = True
+                                break
+                    else:
+                        for i in range(int(elementoCentrale), numParoleVocabolario):
+                            if self.dicInglese.dizionario[i] == parola:
+                                verifica = True
+                                break
+                if not verifica:
+                    word = rw.RichWord(parola)
+                    paroleSbagliate.append(word)
+        else:
+            numParoleVocabolario = len(self.dicSpagnolo.dizionario)
+            if numParoleVocabolario % 2 == 0:
+                elementoCentrale = numParoleVocabolario / 2
+            else:
+                elementoCentrale = (numParoleVocabolario + 1) / 2
+            parolaCentrale = self.dicSpagnolo.dizionario[int(elementoCentrale)]
+            for parola in parole:
+                verifica = False
+                if parola == parolaCentrale:
+                    verifica = True
+                else:
+                    if parola[0] < parolaCentrale[0]:
+                        for i in range(0, int(elementoCentrale), -1):
+                            if self.dicSpagnolo.dizionario[i] == parola:
+                                verifica = True
+                                break
+                    else:
+                        for i in range(int(elementoCentrale), numParoleVocabolario):
+                            if self.dicSpagnolo.dizionario[i] == parola:
+                                verifica = True
+                                break
+                if not verifica:
+                    word = rw.RichWord(parola)
+                    paroleSbagliate.append(word)
         return paroleSbagliate
-
