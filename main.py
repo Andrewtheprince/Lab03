@@ -6,7 +6,13 @@ while(True):
     sc.printMenu()
 
     txtIn = input()
-    # Add input control here!
+    control = False
+    while not control:
+        if (txtIn == "1") or (txtIn == "2") or (txtIn == "3") or (txtIn == "4"):
+            control = True
+        else:
+            print("Puoi inserire solo un numero da 1 a 4!")
+            txtIn = input()
 
     if int(txtIn) == 1:
         print("Inserisci la tua frase in Italiano\n")
@@ -14,19 +20,19 @@ while(True):
         sc.handleSentence(txtIn,"italian")
         continue
 
-    if int(txtIn) == 2:
+    elif int(txtIn) == 2:
         print("Inserisci la tua frase in Inglese\n")
         txtIn = input()
         sc.handleSentence(txtIn,"english")
         continue
 
-    if int(txtIn) == 3:
+    elif int(txtIn) == 3:
         print("Inserisci la tua frase in Spagnolo\n")
         txtIn = input()
         sc.handleSentence(txtIn,"spanish")
         continue
 
-    if int(txtIn) == 4:
+    elif int(txtIn) == 4:
         break
 
 
